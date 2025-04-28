@@ -14,7 +14,7 @@
     <section id="hero" class="hero section dark-background">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Ergün Şaylan</h2>
+        <h2>{{ home_banner_name }}</h2>
         <p>I'm <span class="typed" data-typed-items="Developer, Designer, Engineer, Coder, Learner">Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
       </div>
     </section><!-- /Hero Section -->
@@ -25,7 +25,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>About</h2>
-        <p>I am a third-year Information Systems Engineering student with a strong interest in Computer Vision, Machine Learning, Artificial Intelligence, and Cybersecurity. I work with technologies such as Java, HTML, CSS, and Python. My goal is to specialize in object detection and cybersecurity projects. I am highly motivated to learn new technologies and improve myself in emerging fields. I am curious by nature and effectively channel this curiosity into my learning and development journey. I am committed to putting in the necessary effort to achieve my goals.</p>
+        <p>{{ about_description }}</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -35,9 +35,9 @@
             <img src="{% get_media_prefix %}Ergun.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 content">
-            <h2>Engineering Student</h2>
+            <h2>{{ job_description }}</h2>
             <p class="fst-italic py-3">
-                Hello, I am Ergün. I was born on December 17, 2003, in Istanbul, Turkey, where I currently live and continue my studies as a university student.
+                {{ about_me }}
             </p>
             <div class="row">
               <div class="col-lg-6">
@@ -57,7 +57,7 @@
               </div>
             </div>
             <p class="py-3">
-               I graduated as the top student from Kale Anatolian High School in 2021. I am currently studying Information Systems Engineering at Piri Reis University with a full scholarship and I am a third-year student. I have interests in computer sciences, natural sciences, and social sciences. I dedicate time to sports activities such as hiking and running, and I also contribute to my personal development by reading books across various fields.
+              {{ about_education }}
             </p>
           </div>
         </div>
@@ -77,7 +77,7 @@
             <div class="stats-item">
               <i class="bi bi-code-slash"></i>
               <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Completed Projects</strong> <span>adipisci atque cum quia aut</span></p>
+              <p><strong>Completed Projects</strong> <span></span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -85,7 +85,7 @@
             <div class="stats-item">
               <i class="bi bi-book"></i>
               <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Completed Courses</strong> <span>aut commodi quaerat</span></p>
+              <p><strong>Completed Courses</strong> <span></span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -93,7 +93,7 @@
             <div class="stats-item">
               <i class="bi bi-patch-check"></i>
               <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>certificates received</strong> <span>rerum asperiores dolor</span></p>
+              <p><strong>certificates received</strong> <span></span></p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -109,7 +109,6 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Skills</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
