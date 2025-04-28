@@ -32,3 +32,11 @@ class ResumeAdmin(admin.ModelAdmin):
     list_editable = ['Degree_name', 'start_date', 'end_date', 'school_location', 'parameter']
     class Meta:
         model = Resume
+
+@admin.register(Sumary)
+class SumaryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name_surname', 'description', 'parameter', 'sumary_location', 'sumary_email', 'updated_date', 'created_date',]
+    search_fields = ['name_surname','sumary_location']
+    list_editable = ['name_surname', 'description', 'parameter', 'sumary_location', 'sumary_email']
+    class Meta:
+        model = Sumary

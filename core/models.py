@@ -136,9 +136,53 @@ class Resume(AbstractModel):
     )
 
     def __str__(self):
-        return f'Resume: {self.name}'
+        return f'Resume: {self.Degree_name}'
 
     class Meta:
         verbose_name = 'Resume'
         verbose_name_plural = 'Resumes'
-        ordering = ('start_date',)
+        ordering = ('-start_date',)
+
+class Sumary(AbstractModel):
+    name_surname= models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Name Surname',
+        help_text='This is variable of the setting.',
+    )
+    description = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Description',
+        help_text = '',
+    )
+    parameter = models.CharField(
+        default='',
+        blank=True,
+        verbose_name='Parameter',
+        help_text = '',
+    )
+    sumary_location= models.CharField(
+        default='',
+        blank=True,
+        max_length=254,
+        verbose_name='Location',
+        help_text='',
+    )
+    sumary_email= models.CharField(
+        default='',
+        blank=True,
+        max_length=254,
+        verbose_name='Email',
+        help_text='',
+    )
+    def __str__(self):
+        return f'Sumary: {self.name_surname}'
+
+    class Meta:
+        verbose_name = 'Sumary'
+        verbose_name_plural = 'Sumaries'
+
+

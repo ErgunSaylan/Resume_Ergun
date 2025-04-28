@@ -141,7 +141,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Resume</h2>
-        <p>I am currently studying Information Systems Engineering at Piri Reis University with a full scholarship since 2022. I graduated as the top student from Kale Anatolian High School's Science Track in 2021. Throughout my academic journey, I have developed strong interests in machine learning, computer vision, and interdisciplinary research involving computer, natural, and social sciences. I aim to pursue studies and projects both in my core field and across interdisciplinary areas, focusing on continuous academic and practical development.</p>
+        <p>{{ resume_description }}</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -152,28 +152,31 @@
             <h3 class="resume-title">Sumary</h3>
 
             <div class="resume-item pb-0">
-              <h4>Ergün Şaylan</h4>
-              <p><em>As an Information Systems Engineering student, I have gained experience in advanced web technologies, mobile application development, and the Internet of Things (IoT), combining both theoretical knowledge and practical skills</em></p>
-              <ul>
-                <li>Istanbul, Turkey</li>
-                <li>ergunsaylan2117@gmail.com</li>
-              </ul>
+                {% for summary in Sumaries %}
+                    <h4>{{ summary.name_surname }}</h4>
+                    <p><em>{{ summary.parameter }}</em></p>
+                    <ul>
+                        <li>{{ summary.sumary_location }}</li>
+                        <li>{{ summary.sumary_email }}</li>
+                    </ul>
+                {% endfor %}
             </div><!-- Edn Resume Item -->
+             <h3 class="resume-title">Education</h3>
+            {% for Resume in Resumes %}
+                <div class="resume-item">
+                  <h4>{{ Resume.Degree_name }} </h4>
+                  <h5>{{ Resume.start_date|date:"Y" }} -
+                        {% if Resume.end_date %}
+                        {{ Resume.end_date|date:"Y" }}
+                        {% else %}
+                             Present
+                        {% endif %}
+                  </h5>
+                  <p><em>{{ Resume.school_location }}</em></p>
+                  <p>{{ Resume.parameter }}</p>
+                </div><!-- Edn Resume Item -->
+           {% endfor %}
 
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Bachelor of Engineering </h4>
-              <h5>2022 - 2026</h5>
-              <p><em>Piri Reis University, Tuzla, Istanbul</em></p>
-              <p>In 2022, I was admitted to the Information Systems Engineering program at Piri Reis University with a full scholarship, where I am currently continuing my education.</p>
-            </div><!-- Edn Resume Item -->
-
-            <div class="resume-item">
-              <h4>High School Graduate</h4>
-              <h5>2017 - 2021</h5>
-              <p><em>Kale Anatolian High School, Tuzla, Istanbul</em></p>
-              <p>In 2017, I was admitted to Kale Anatolian High School, where I pursued my education in the science track. I received several achievement awards and graduated as the top student of my class in 2021.</p>
-            </div><!-- Edn Resume Item -->
 
           </div>
           </div>
