@@ -104,3 +104,41 @@ class Skill(AbstractModel):
         verbose_name = 'Skill'
         verbose_name_plural = 'Skills'
         ordering = ('order',)
+
+class Resume(AbstractModel):
+    Degree_name = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Degree Name',
+    )
+    start_date= models.DateField(
+        verbose_name='Start Date',
+    )
+    end_date= models.DateField(
+        default='None',
+        null=True,
+        blank=True,
+        verbose_name='End Date',
+    )
+    school_location = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='School Location',
+        help_text='School Name , Location',
+    )
+    parameter = models.CharField(
+        default='',
+        blank=True,
+        verbose_name='Parameter',
+        help_text='',
+    )
+
+    def __str__(self):
+        return f'Resume: {self.name}'
+
+    class Meta:
+        verbose_name = 'Resume'
+        verbose_name_plural = 'Resumes'
+        ordering = ('start_date',)

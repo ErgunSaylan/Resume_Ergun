@@ -24,3 +24,11 @@ class SkillAdmin(admin.ModelAdmin):
     list_editable = ['order', 'name', 'percentage']
     class Meta:
         model = Skill
+
+@admin.register(Resume)
+class ResumeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'Degree_name', 'start_date', 'end_date', 'school_location', 'parameter', 'updated_date', 'created_date',]
+    search_fields = ['Degree_name','school_location']
+    list_editable = ['Degree_name', 'start_date', 'end_date', 'school_location', 'parameter']
+    class Meta:
+        model = Resume
