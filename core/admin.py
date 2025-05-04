@@ -64,3 +64,11 @@ class SocialMediaAdmin(admin.ModelAdmin):
     list_editable = ['order', 'link', 'icon']
     class Meta:
         model = SocialMedia
+
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ['id', 'order', 'slug', 'button_text', 'file']
+    search_fields = ['slug', 'button_text']
+    list_editable = ['order', 'slug', 'button_text', 'file']
+    class Meta:
+        model = Document

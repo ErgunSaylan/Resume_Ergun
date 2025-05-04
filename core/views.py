@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
 from core.admin import SocialMediaAdmin
-from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project, Certificate, SocialMedia
+from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project, Certificate, SocialMedia, Document
 
 
 # Create your views here.
@@ -35,6 +35,9 @@ def index(request):
     Certificates = Certificate.objects.all()
     #SocialMedias
     SocialMedias = SocialMedia.objects.all()
+
+    #Document
+    Documents = Document.objects.all()
     context= {
         'site_title': site_title,
         'site_keywords': site_keywords,
@@ -53,6 +56,12 @@ def index(request):
         'Projects': Projects,
         'Certificates': Certificates,
         'SocialMedias': SocialMedias,
+        'Documents': Documents,
+
     }
     return render(request, 'index.html', context=context)
 
+
+def redirect_urls(request, slug):
+    doc = get_object_or_404(Document, slug=slug)
+    return redirect(doc.file.url)

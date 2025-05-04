@@ -17,7 +17,7 @@
 
     <div class="social-links text-center">
         {% for SocialMedia in SocialMedias %}
-            <a href="{{ SocialMedia.link }}" >{{ SocialMedia.icon|safe }}</a>
+            <a href="{{ SocialMedia.link }}" target="_blank" >{{ SocialMedia.icon|safe }}</a>
         {% endfor %}
     </div>
 
@@ -27,6 +27,9 @@
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
         <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#services"><i class="bi bi-code navicon"></i> Projects & Certificates</a></li>
+          {% for document in Documents %}
+        <li><a href="{{ document.file.url }}" target="_blank"><i class="bi bi-file-person navicon"></i> Professional Profile </a></li>
+          {% endfor %}
         <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
       </ul>
     </nav>
