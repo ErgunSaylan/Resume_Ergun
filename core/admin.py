@@ -40,3 +40,19 @@ class SumaryAdmin(admin.ModelAdmin):
     list_editable = ['name_surname', 'description', 'parameter', 'sumary_location', 'sumary_email']
     class Meta:
         model = Sumary
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ['id', 'Project_name', 'description', 'parameter']
+    search_fields = ['Project_name', 'description', 'parameter']
+    list_editable = ['Project_name','description', 'parameter']
+    class Meta:
+        model = Project
+
+@admin.register(Certificate)
+class CertificateAdmin(admin.ModelAdmin):
+    list_display = ['id', 'Certificate_name', 'description', 'parameter']
+    search_fields = ['Certificate_name', 'description', 'parameter']
+    list_editable = ['Certificate_name','description', 'parameter']
+    class Meta:
+        model = Certificate

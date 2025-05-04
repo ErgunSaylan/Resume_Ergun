@@ -185,4 +185,60 @@ class Sumary(AbstractModel):
         verbose_name = 'Sumary'
         verbose_name_plural = 'Sumaries'
 
+class Project(AbstractModel):
+    Project_name = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Project',
+    )
 
+    description = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Description',
+        help_text='',
+    )
+
+    parameter = models.CharField(
+        default='',
+        blank=True,
+        verbose_name='Parameter',
+        help_text='',
+    )
+    def __str__(self):
+        return f'Project: {self.Project_name}'
+
+    class Meta:
+        verbose_name = 'Project'
+        verbose_name_plural = 'Projects'
+
+class Certificate(AbstractModel):
+    Certificate_name = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Certificate',
+    )
+
+    description = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Description',
+        help_text='',
+    )
+
+    parameter = models.CharField(
+        default='',
+        blank=True,
+        verbose_name='Parameter',
+        help_text='',
+    )
+    def __str__(self):
+        return f'Certificate: {self.Certificate_name}'
+
+    class Meta:
+        verbose_name = 'Certificate'
+        verbose_name_plural = 'Certificates'

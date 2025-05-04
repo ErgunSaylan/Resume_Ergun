@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary
+from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project,Certificate
 
 
 # Create your views here.
@@ -27,6 +27,11 @@ def index(request):
     #Education
     Resumes = Resume.objects.all()
 
+    #Projects
+    Projects = Project.objects.all()
+    #Certificates
+    Certificates = Certificate.objects.all()
+
     context= {
         'site_title': site_title,
         'site_keywords': site_keywords,
@@ -42,6 +47,8 @@ def index(request):
         'Resumes': Resumes,
         'resume_description': resume_description,
         'Sumaries': Sumaries,
+        'Projects': Projects,
+        'Certificates': Certificates,
     }
     return render(request, 'index.html', context=context)
 

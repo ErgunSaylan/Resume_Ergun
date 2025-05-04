@@ -201,72 +201,17 @@
           <div class="container">
 
               <div class="row gy-4">
-
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                      <div class="icon flex-shrink-0"><i class="bi bi-file-person"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Advanced web</p></h4>
-                          <p class="description">Developed a cv site using ready-made bootstrap template, html, css and
-                              javascript on pycharm environment</p>
+                  {% for Project in Projects %}
+                      <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                          <div class="icon flex-shrink-0"><i class="bi bi-code-square"></i></div>
+                          <div>
+                              <h4 class="title"><p class="stretched-link">{{ Project.Project_name }}</p></h4>
+                              <p class="description">{{ Project.parameter }}</p>
+                          </div>
                       </div>
-                  </div>
-                  <!-- End Service Item -->
+                  {% endfor %}
 
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                      <div class="icon flex-shrink-0"><i class="bi bi-cart"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Web</p></h4>
-                          <p class="description">Developed an e-commerce site where fish shopping is done using html css
-                              and javascript</p>
-                      </div>
-                  </div><!-- End Service Item -->
 
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                      <div class="icon flex-shrink-0"><i class="bi bi-phone"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Mobile Application</p></h4>
-                          <p class="description">Using java and xml on Android Studio, an application was developed
-                              where the user can add and follow the books.</p>
-                      </div>
-                  </div><!-- End Service Item -->
-
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                      <div class="icon flex-shrink-0"><i class="bi bi-eye"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Computer Vision</p></h4>
-                          <p class="description">A Computer Vision project was developed for shirt pattern detection
-                              using python, scikit learn, machine learning and Computer Vision methods</p>
-                      </div>
-                  </div><!-- End Service Item -->
-
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                      <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Database Management Systems</p></h4>
-                          <p class="description">Using MsAcess, a database with the type of books, price and various
-                              information was developed.</p>
-                      </div>
-                  </div><!-- End Service Item -->
-
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-                      <div class="icon flex-shrink-0"><i class="bi bi-controller"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Javascript</p></h4>
-                          <p class="description">Using the Javascript language, code has been developed in which users
-                              enter various location information and select various vehicles to fire at the target and
-                              see if they hit the target (it can be thought of as a war game)</p>
-                      </div>
-                  </div><!-- End Service Item -->
-
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-                      <div class="icon flex-shrink-0"><i class="bi bi-wifi"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">IOT</p></h4>
-                          <p class="description">Using raspberry pi and node-red, a project has been developed for
-                              security that can be controlled by password, where distance detection is made and
-                              accordingly the leds flash and the small sound device emits sound.</p>
-                      </div>
-                  </div>
 
               </div>
           </div>
@@ -276,22 +221,17 @@
 
           <div class="container">
               <div class="row gy-4">
+                  {% for Certificate in Certificates %}
                   <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                       <div class="icon flex-shrink-0"><i class="bi bi-award"></i></div>
                       <div>
-                          <h4 class="title"><p class="stretched-link">PRU Tech Summit'24</p></h4>
-                          <p class="description">cloud technologies, artificial intelligence, cybersecurity</p>
+                          <h4 class="title"><p class="stretched-link">{{ Certificate.Certificate_name }}</p></h4>
+                          <p class="description">{{ Certificate.parameter }}</p>
                       </div>
                   </div>
-                  <!-- End Service Item -->
+                  {% endfor %}
 
-                  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                      <div class="icon flex-shrink-0"><i class="bi bi-award"></i></div>
-                      <div>
-                          <h4 class="title"><p class="stretched-link">Advanced Web</p></h4>
-                          <p class="description">Html, css, javascript</p>
-                      </div>
-                  </div><!-- End Service Item -->
+
               </div>
           </div>
       </section><!-- /Services Section -->
