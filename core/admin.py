@@ -56,3 +56,11 @@ class CertificateAdmin(admin.ModelAdmin):
     list_editable = ['Certificate_name','description', 'parameter']
     class Meta:
         model = Certificate
+
+@admin.register(SocialMedia)
+class SocialMediaAdmin(admin.ModelAdmin):
+    list_display = ['id', 'order', 'link', 'icon']
+    search_fields = ['link', 'icon']
+    list_editable = ['order', 'link', 'icon']
+    class Meta:
+        model = SocialMedia

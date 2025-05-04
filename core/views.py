@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project,Certificate
+
+from core.admin import SocialMediaAdmin
+from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project, Certificate, SocialMedia
 
 
 # Create your views here.
@@ -31,7 +33,8 @@ def index(request):
     Projects = Project.objects.all()
     #Certificates
     Certificates = Certificate.objects.all()
-
+    #SocialMedias
+    SocialMedias = SocialMedia.objects.all()
     context= {
         'site_title': site_title,
         'site_keywords': site_keywords,
@@ -49,6 +52,7 @@ def index(request):
         'Sumaries': Sumaries,
         'Projects': Projects,
         'Certificates': Certificates,
+        'SocialMedias': SocialMedias,
     }
     return render(request, 'index.html', context=context)
 
