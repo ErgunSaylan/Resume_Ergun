@@ -72,3 +72,19 @@ class DocumentAdmin(admin.ModelAdmin):
     list_editable = ['order', 'slug', 'button_text', 'file']
     class Meta:
         model = Document
+
+@admin.register(Ergun)
+class ErgunAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'parameter', 'updated_date', 'created_date']
+    search_fields = ['name', 'parameter']
+    list_editable = ['name', 'parameter']
+    class Meta:
+        model = Ergun
+
+@admin.register(Activity)
+class ActivityAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'parameter','icon', 'updated_date', 'created_date']
+    search_fields = ['name', 'parameter','icon']
+    list_editable = ['name', 'parameter','icon']
+    class Meta:
+        model = Activity

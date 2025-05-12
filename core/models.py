@@ -301,3 +301,51 @@ class Document(AbstractModel):
         verbose_name = 'Document'
         verbose_name_plural = 'Documents'
         ordering = ('order',)
+
+class Ergun(AbstractModel):
+    name = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Name',
+    )
+    parameter = models.CharField(
+        default='',
+        blank=True,
+        verbose_name='Parameter',
+    )
+
+
+    def __str__(self):
+        return f'Ergun: {self.name}'
+
+    class Meta:
+        verbose_name = 'Ergun'
+        verbose_name_plural = 'Erguns'
+
+class Activity(AbstractModel):
+    name = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Name',
+    )
+
+    icon = models.CharField(
+        default='',
+        max_length=254,
+        blank=True,
+        verbose_name='Icon',
+    )
+    parameter = models.CharField(
+        default='',
+        blank=True,
+        verbose_name='Parameter',
+    )
+
+    def __str__(self):
+        return f'Activity: {self.name}'
+
+    class Meta:
+        verbose_name = 'Activity'
+        verbose_name_plural = 'Activities'

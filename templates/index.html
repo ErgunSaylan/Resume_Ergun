@@ -15,7 +15,9 @@
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <h2>{{ home_banner_name }}</h2>
-        <p>I'm <span class="typed" data-typed-items="Developer, Designer, Engineer, Coder, Learner">Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+          {% for Ergun in Erguns %}
+        <p>{{ Ergun.name }} <span class="typed" data-typed-items='{{ Ergun.parameter }}'></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+          {% endfor %}
       </div>
     </section><!-- /Hero Section -->
 
@@ -74,29 +76,17 @@
         <div class="row gy-4">
 
           <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-code-slash"></i>
-              <span data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Completed Projects</strong> <span></span></p>
-            </div>
-          </div><!-- End Stats Item -->
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-book"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Completed Courses</strong> <span></span></p>
-            </div>
-          </div><!-- End Stats Item -->
+              {% for Activity in Activities %}
+                  <div class="stats-item">
+                      <i class="{{ Activity.icon }}"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="{{ Activity.parameter }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
+                      <p><strong>{{ Activity.name }}</strong> <span></span></p>
+                  </div>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-patch-check"></i>
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>certificates received</strong> <span></span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
+              {% endfor %}
+          </div>
         </div>
 
       </div>
@@ -273,44 +263,42 @@
             </div>
           </div>
 
-          <div class="col-lg-7">
+        <div class="col-lg-7">
             <form action="{% url 'contact_form' %}" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+    {% csrf_token %}
 
-                {% csrf_token %}
+    <div class="row gy-4">
+        <div class="col-md-6">
+            <label for="{{ contact_form.name.id_for_label }}" class="pb-2">Your Name</label>
+            <input type="text" name="{{ contact_form.name.html_name }}" id="{{ contact_form.name.id_for_label }}" class="form-control" required="">
+        </div>
 
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
+        <div class="col-md-6">
+            <label for="{{ contact_form.email.id_for_label }}" class="pb-2">Your Email</label>
+            <input type="email" class="form-control" name="{{ contact_form.email.html_name }}" id="{{ contact_form.email.id_for_label }}" required="">
+        </div>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
+        <div class="col-md-12">
+            <label for="{{ contact_form.subject.id_for_label }}" class="pb-2">Subject</label>
+            <input type="text" class="form-control" name="{{ contact_form.subject.html_name }}" id="{{ contact_form.subject.id_for_label }}" required="">
+        </div>
 
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
+        <div class="col-md-12">
+            <label for="{{ contact_form.message.id_for_label }}" class="pb-2">Message</label>
+            <textarea class="form-control" name="{{ contact_form.message.html_name }}" rows="10" id="{{ contact_form.message.id_for_label }}" required=""></textarea>
+        </div>
 
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
+        <div class="col-md-12 text-center">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+            <button type="submit">Send Message</button>
+        </div>
+    </div>
+</form>
 
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
+          </div>
         </div>
 
       </div>

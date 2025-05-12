@@ -6,6 +6,17 @@
 (function () {
   "use strict";
 
+  function displayError(thisForm, errorMsg) {
+  const errorElement = thisForm.querySelector('.error-message');
+  if (errorElement) {
+    errorElement.innerText = errorMsg;
+    errorElement.classList.add('d-block');
+  } else {
+    alert(errorMsg);
+  }
+}
+
+
   let forms = document.querySelectorAll('.php-email-form');
 
   forms.forEach( function(e) {
@@ -75,6 +86,7 @@
     displayError(thisForm, data.message || 'Form submission failed.');
   }
 })
+
         .catch((error) => {
           displayError(thisForm, error.message || error);
         });
@@ -82,3 +94,4 @@
   }
 
 })();
+

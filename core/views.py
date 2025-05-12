@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 from core.admin import SocialMediaAdmin
-from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project, Certificate, SocialMedia, Document
+from core.models import GeneralSetting, ImageSetting, Skill, Resume, Sumary, Project, Certificate, SocialMedia, Document,Ergun, Activity
 
 
 # Create your views here.
@@ -17,10 +17,14 @@ def index(request):
     about_education = GeneralSetting.objects.get(name='about_education').parameter
     resume_description = GeneralSetting.objects.get(name='resume_description').parameter
 
+    #Ergun
+    Erguns = Ergun.objects.all()
     #images
     home_banner_image = ImageSetting.objects.get(name='home_banner_image').file
     site_favicon = ImageSetting.objects.get(name='site_favicon').file
 
+    #Completed
+    Activities = Activity.objects.all()
     #Skills
     skills = Skill.objects.all().order_by('order')
 
@@ -57,6 +61,8 @@ def index(request):
         'Certificates': Certificates,
         'SocialMedias': SocialMedias,
         'Documents': Documents,
+        'Erguns': Erguns,
+        'Activities': Activities,
 
     }
     return render(request, 'index.html', context=context)
